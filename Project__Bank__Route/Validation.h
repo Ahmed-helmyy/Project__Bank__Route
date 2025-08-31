@@ -9,7 +9,6 @@ public:
         if (name.size() < 5 || name.size() > 20)
             return false;
         for (char ch : name) {
-            if (!isalpha(ch)) 
                 return false;
         }
         return true;

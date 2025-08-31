@@ -12,8 +12,6 @@ protected:
 
 public:
     Person(int id, const string& name, const string& password)
-        : id(id), name(name), password(password) 
-    {
     }
 
     void setName(const string& name) {
@@ -33,7 +31,6 @@ public:
         this->id = id;
     }
 
-  
     int getId() const { return id; }
     string getName() const { return name; }
     string getPassword() const { return password; }

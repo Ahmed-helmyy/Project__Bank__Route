@@ -11,8 +11,8 @@ protected:
     string password;
 
 public:
-    Person(int id, const string& name, const string& password)
-    }
+    Person(int id, const string& name, const string& password);
+   
 
     void setName(const string& name) {
         if (Validation::validateName(name))

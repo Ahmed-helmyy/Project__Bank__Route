@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1756729500 source:d:\new folder\project__bank__route\admin.cpp
+	"Admin.h"
+
+1756729500 d:\new folder\project__bank__route\admin.h
+	"Employee.h"
+	<string>
+	<iostream>
+
+1756729500 d:\new folder\project__bank__route\employee.h
+	"Perosn.h"
+	<string>
+	<iostream>
+	"Client.h"
+
+1756729500 d:\new folder\project__bank__route\perosn.h
+	<string>
+	<iostream>
+	"Validation.h"
+
+1756729500 d:\new folder\project__bank__route\validation.h
+	<string>
+	<iostream>
+
+1756729500 d:\new folder\project__bank__route\client.h
+	"Perosn.h"
+	<string>
+	<iostream>
+
+1756729950 source:d:\new folder\project__bank__route\client.cpp
+
+1756729500 source:d:\new folder\project__bank__route\employee.cpp
+	"Employee.h"
+
+1756729500 source:d:\new folder\project__bank__route\perosn.cpp
+	"Perosn.h"
+

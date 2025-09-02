@@ -31,7 +31,8 @@ public:
         this->id = id;
     }
 
-    int getId() const { return id; }
+    int getId() const {
+        return id; }
     string getName() const { return name; }
     string getPassword() const { return password; }
 

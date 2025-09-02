@@ -6,5 +6,6 @@ using namespace std;
 class Admin : public Employee
 {
 
+
 };
 

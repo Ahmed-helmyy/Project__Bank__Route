@@ -11,6 +11,7 @@ protected:
     string password;
 
 public:
+    Person() {}
     Person(int id, const string& name, const string& password);
    
 

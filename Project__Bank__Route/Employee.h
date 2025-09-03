@@ -1,86 +1,80 @@
 #pragma once
 #include "Perosn.h"
+using namespace std;
+#include <string>
+#include <iostream>
 #include "Client.h"
-
-class Employee : public Person {
-protected:
-    double salary = 0;
-    Client clients[100];
-    int clientCount = 0;
-
+class Employee :public Person
+{
+	double salary;
+	Client clients[100];
+	int clientCount = 0; 
 public:
-    Employee() {}
-    Employee(int id, string name, string password, double salary) {
-        setId(id);
-        setName(name);
-        setPassword(password);
-        setSalary(salary);
-    }
+	Employee() {
+	}
+	void login(int id, string password) {
+		if (this->id == id && this->password == password) {
+			cout << "Login successful. Welcome " << this->name << "!" << endl;
+		}
+		else {
+			cout << "Login failed. Invalid ID or password." << endl;
 
-    void setSalary(double salary) {
-        if (Validation::validateSalary(salary))
-            this->salary = salary;
-        else
-            cout << "Invalid salary! Must be >= 5000.\n";
-    }
-    double getSalary() const { return salary; }
+		}
 
-    void login(int id, string password) {
-        if (this->id == id && this->password == password)
-            cout << "Login successful. Welcome " << this->name << "!\n";
-        else
-            cout << "Login failed. Invalid ID or password.\n";
-    }
+	}
+	void NewClient(int id, string name, string password, double balance) {
+		clients[clientCount].setId(id);
+		clients[clientCount].setName(name);
+		clients[clientCount].setPassword(password);
+		clients[clientCount].setBalance(balance);
 
-    void newClient(int id, string name, string password, double balance) {
-        clients[clientCount].setId(id);
-        clients[clientCount].setName(name);
-        clients[clientCount].setPassword(password);
-        clients[clientCount].setBalance(balance);
-        clientCount++;
-        cout << "New client added successfully!\n";
-    }
+		clientCount++; 
+		cout << "New client added successfully!" << endl;
+	}
 
-    void searchClient(int id) {
-        for (int i = 0; i < clientCount; i++) {
-            if (clients[i].getId() == id) {
-                cout << "Client found: ";
-                clients[i].display();
-                return;
-            }
-        }
-        cout << "Client not found.\n";
-    }
+	void search(int id) {
+		for (int i = 0; i < clientCount; i++) {
+			if (clients[i].getId() == id) {
+				cout << "Client found: " << clients[i].getName()
+					<< " | Balance: " << clients[i].getBalance() << endl;
+				return;
+			}
+		}
+		cout << "Client not found." << endl;
+	}
 
-    void listAllClients() {
-        if (clientCount == 0) {
-            cout << "No clients available.\n";
-            return;
-        }
-        cout << "--- Clients List ---\n";
-        for (int i = 0; i < clientCount; i++) {
-            clients[i].display();
-        }
-    }
+	void listAllClients() {
+		if (clientCount == 0) {
+			cout << "No clients available." << endl;
+			return;
+		}
+		cout << "--- Clients List ---" << endl;
+		for (int i = 0; i < clientCount; i++) {
+			cout << "ID: " << clients[i].getId()
+				<< " | Name: " << clients[i].getName()
+				<< " | Balance: " << clients[i].getBalance() << endl;
+		}
+	}
 
-    void editClient(int id, string newName, string newPassword, double newBalance) {
-        for (int i = 0; i < clientCount; i++) {
-            if (clients[i].getId() == id) {
-                clients[i].setName(newName);
-                clients[i].setPassword(newPassword);
-                clients[i].setBalance(newBalance);
-                cout << "Client updated successfully!\n";
-                return;
-            }
-        }
-        cout << "Client not found.\n";
-    }
+	void editClient(int id, string newName, string newPassword, double newBalance) {
+		for (int i = 0; i < clientCount; i++) {
+			if (clients[i].getId() == id) {
+				clients[i].setName(newName);
+				clients[i].setPassword(newPassword);
+				clients[i].setBalance(newBalance);
+				cout << "Client updated successfully!" << endl;
+				return;
+			}
+		}
+		cout << "Client not found." << endl;
+	}
 
-    void displayInfo() {
-        cout << "--- Employee Info ---\n";
-        cout << "ID: " << id
-            << " | Name: " << name
-            << " | Salary: " << salary << endl;
-    }
+
+	void displayInfo() {
+		cout << "--- Employee Info ---" << endl;
+		cout << "ID: " << this->id
+			<< " | Name: " << this->name
+			<< " | Salary: " << this->salary << endl;
+	}
 };
 

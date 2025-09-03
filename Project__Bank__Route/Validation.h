@@ -1,16 +1,15 @@
 #pragma once
+using namespace std;
 #include <string>
 #include <iostream>
-#include <cctype>
-using namespace std;
-
-class Validation {
+class Validation
+{
 public:
     static bool validateName(const string& name) {
         if (name.size() < 5 || name.size() > 20)
             return false;
         for (char ch : name) {
-            if (!isalpha(ch)) return false;
+                return false;
         }
         return true;
     }
@@ -26,4 +25,6 @@ public:
     static bool validateSalary(double salary) {
         return salary >= 5000;
     }
+
 };
+
